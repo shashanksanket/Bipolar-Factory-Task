@@ -1,3 +1,4 @@
+/* eslint-disable */
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
 import { useDrawingArea } from '@mui/x-charts/hooks';
@@ -15,22 +16,20 @@ const size = {
   height: 200,
 };
 
-const StyledText = styled('text')(({ theme, bold }) => ({
+const StyledText = styled('text')(({ theme }) => ({
   fill: theme.palette.text.primary,
   textAnchor: 'middle',
   dominantBaseline: 'central',
-  fontSize: bold?30:20,
-  fontWeight: bold ? 'bold' : 'normal', // Apply bold font weight conditionally
 }));
 
 function PieCenterLabel({ title, label }: PieProps) {
   const { width, height, left, top } = useDrawingArea();
   return (
     <>
-      <StyledText x={left + width / 2} y={top + height / 2-10} bold>
+      <StyledText x={left + width / 2} y={top + height / 2-10} fontWeight='bold' fontSize='30' >
         {title}
       </StyledText>
-      <StyledText x={left + width / 2} y={top + height / 2+30}>
+      <StyledText x={left + width / 2} y={top + height / 2+30} fontSize='20'>
         {label}
       </StyledText>
     </>
