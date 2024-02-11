@@ -1,113 +1,151 @@
 import Image from "next/image";
+import arrow from "../assets/arrow.svg"
+import refetch from "../assets/refetch.svg"
+import recorder from "../assets/recorder.svg"
+import preview from "../assets/preview.png"
+import preview1 from "../assets/preview1.png"
+import preview2 from "../assets/preview2.png"
+import preview3 from "../assets/preview3.png"
+import preview4 from "../assets/preview4.png"
+
+
+const cameraDetails = {
+  Location: "Coimbatore",
+  City: "Coimbatore",
+  Timezone: "Delhi-India",
+  DateAdded: "Aug 03, 2023 12:01:42 PM",
+  LastUpdate: "Aug 03, 2023 12:01:42 PM",
+  ManufactureDetails: "ADT",
+}
+
+const cameraPreviews = [{
+  imgUrl: preview1,
+  title: "Recording_0121",
+  time: "Today, 04:42 pm"
+},
+{
+  imgUrl: preview2,
+  title: "Recording_0121",
+  time: "Today, 04:42 pm"
+},
+{
+  imgUrl: preview3,
+  title: "Recording_0121",
+  time: "Today, 04:42 pm"
+},
+{
+  imgUrl: preview4,
+  title: "Recording_0121",
+  time: "Today, 04:42 pm"
+}
+]
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="px-20 py-10 w-full flex flex-col gap-y-6">
+      <div className="flex justify-between items-start">
+        <div className="flex items-start gap-x-3">
+          <div className="bg-[#EFEFEF] rounded flex p-2">
+            <Image src={arrow} alt="arrow" className="cursor-pointer" />
+          </div>
+          <div className="flex w-full items-start flex-col gap-y-2">
+            <span className="flex items-end gap-x-2">
+              <p className="font-bold text-3xl">VMS</p>
+              <p className="">/ Cameras / Camera Details</p>
+            </span>
+            <p className="text-[#00000078]">Bank Entrance-front-view Camera1</p>
+
+            <p className="text-black w-full">View and manage camera details, recordings and connection details</p>
+
+          </div>
+        </div>
+        <div className="flex w-fit gap-x-4">
+          <button className="px-5 py-3 border-2 rounded-lg border-black">
+            Edit Camera
+          </button>
+          <button className="px-5 py-3 border-2 rounded-lg border-black">
+            Deactivate
+          </button>
+          <button className="px-5 py-3 border-2 text-red-600 rounded-lg border-red-700">
+            Delete Camera
+          </button>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="border flex flex-col gap-y-6 rounded-md p-10">
+        <div className="flex gap-x-3">
+          <button className="bg-[#EFEFEF] px-6 flex gap-x-2 py-2 rounded-md">
+            <Image src={recorder} alt="recorder" />
+            <p>View Recorded Videos</p>
+          </button>
+          <button className="bg-[#EFEFEF] px-6 gap-x-2 flex py-2 rounded-md">
+            <Image src={refetch} alt="refetch" />
+            <p>Refetch Camera</p>
+          </button>
+        </div>
+        <div className="flex gap-x-5 w-full ">
+          <Image src={preview} alt="preview" width={1500} />
+          <div className="flex w-full flex-col border rounded p-10 gap-y-4">
+            <span className="flex w-full items-center justify-between">
+              <p className="font-semibold text-xl">Camera Details</p>
+              <p className="bg-green-400 rounded-md text-white text-center py-1 px-2">Active</p>
+            </span>
+            <div className="flex flex-col gap-y-2">
+              {Object.entries(cameraDetails).map(([key, value], index) => (
+                <span key={index} className="flex gap-x-2">
+                  <p className="font-bold">{key}:</p>
+                  <p>{value}</p>
+                </span>
+              ))}
+              <span className="flex gap-x-2">
+                <p className="font-bold">RTSP/HLS URL:</p>
+                <a href="#" className="text-blue-500 underline">Copy URL</a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col gap-y-3">
+          <p className="font-semibold text-xl">Camera Health and Alert</p>
+          <div className="flex w-full gap-x-4">
+            <div className="border flex flex-col gap-y-2 w-full rounded-lg p-4">
+              <p className="font-semibold text-[14px]">Offline Alert</p>
+              <p className="text-[#757575] text-[13px]">If camera is continuously offline for</p>
+              <p className="font-semibold text-xl">12 minutes</p>
+              <p className="text-[#757575] text-[13px]">Send an email to</p>
+              <p className="font-semibold">email.com</p>
+            </div>
+            <div className="border flex flex-col w-full gap-y-2 rounded p-4">
+              <p className="font-semibold text-[14px]">Health Grade</p>
+              <p className="font-semibold text-xl">96%</p>
+              <p className="text-[#757575] text-[13px]">Cheers, this camera had no offline time in the last 30 days</p>
+              <p className="font-semibold text-[#4CAF50]">Grade A</p>
+            </div>
+            <div className="border flex flex-col w-full gap-y-2 rounded p-4">
+              <p className="font-semibold text-[14px]">Health Logs</p>
+              <p className="text-[#757575] text-[13px]">Today, 04:37 pm: Activated</p>
+              <p className="text-[#757575] text-[13px]">23 Aug, 02:22 pm: Deactivated</p>
+              <p className="text-[#757575] text-[13px]">T21 Aug, 05:12 am: Activated</p>
+              <p className="text-[#757575] text-[13px]">20 Aug, 02:12 am: Deactivated</p>
+              <p className="text-[#757575] text-[13px]">T19 Aug, 02:12 am: Deactivated</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span className="flex justify-between">
+            <p className="font-semibold text-xl">Recent Recordings</p>
+            <p className="underline font-semibold cursor-pointer">View All</p>
+          </span>
+          <div className="flex justify-between">
+          {cameraPreviews.map((preview, index) => (
+              <div key={index} className="flex flex-col cursor-pointer gap-y-3 mt-2 rounded-md border p-3">
+                <Image className="rounded-lg" src={preview.imgUrl} alt={preview.title} width={0} height={0} />
+                <p className="font-semibold">{preview.title}</p>
+                <p className="text-[#757575]">{preview.time}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
   );
 }
