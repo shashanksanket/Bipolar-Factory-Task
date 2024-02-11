@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Pie from "./PieChart";
-import icon1 from "../../assets/icon-1.svg";
-import icon2 from "../../assets/icon-2.svg";
-import info from "../../assets/info.svg";
+import icon1 from "../assets/icon-1.svg";
+import icon2 from "../assets/icon-2.svg";
+import info from "../assets/info.svg";
 
 export default function Charts() {
   const Label = [
