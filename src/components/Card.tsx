@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Pie from "./PieChart";
-import camera from "../../assets/camera.png"
-import icon3 from "../../assets/icon-3.svg"
-import icon4 from "../../assets/icon-4.svg"
-import icon5 from "../../assets/icon-5.svg"
-import delet from "../../assets/delete.svg"
-import graph from "../../assets/graph.svg"
-import recorder from "../../assets/recorder.svg"
+import camera from "../assets/camera.png"
+import icon3 from "../assets/icon-3.svg"
+import icon4 from "../assets/icon-4.svg"
+import icon5 from "../assets/icon-5.svg"
+import delet from "../assets/delete.svg"
+import graph from "../assets/graph.svg"
+import recorder from "../assets/recorder.svg"
 
 
 

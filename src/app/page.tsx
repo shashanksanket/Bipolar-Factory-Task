@@ -43,7 +43,7 @@ const cameraPreviews = [{
 export default function Home() {
   return (
     <div className="px-20 py-10 w-full flex flex-col gap-y-6">
-      <div className="flex justify-between items-start">
+      <div className="flex justify-between flex-wrap items-start">
         <div className="flex items-start gap-x-3">
           <div className="bg-[#EFEFEF] rounded flex p-2">
             <Image src={arrow} alt="arrow" className="cursor-pointer" />
@@ -82,7 +82,7 @@ export default function Home() {
             <p>Refetch Camera</p>
           </button>
         </div>
-        <div className="flex gap-x-5 w-full ">
+        <div className="flex gap-x-5 w-full flex-wrap md:flex-nowrap ">
           <Image src={preview} alt="preview" width={1500} />
           <div className="flex w-full flex-col border rounded p-10 gap-y-4">
             <span className="flex w-full items-center justify-between">
@@ -103,9 +103,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-y-3">
+        <div className="flex flex-col gap-y-3 flex-wrap md:flex-nowrap">
           <p className="font-semibold text-xl">Camera Health and Alert</p>
-          <div className="flex w-full gap-x-4">
+          <div className="flex w-full gap-x-4 flex-wrap md:flex-nowrap">
             <div className="border flex flex-col gap-y-2 w-full rounded-lg p-4">
               <p className="font-semibold text-[14px]">Offline Alert</p>
               <p className="text-[#757575] text-[13px]">If camera is continuously offline for</p>
@@ -130,11 +130,11 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <span className="flex justify-between">
+          <span className="flex justify-between flex-wrap md:flex-nowrap">
             <p className="font-semibold text-xl">Recent Recordings</p>
             <p className="underline font-semibold cursor-pointer">View All</p>
           </span>
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-wrap md:flex-nowrap">
           {cameraPreviews.map((preview, index) => (
               <div key={index} className="flex flex-col cursor-pointer gap-y-3 mt-2 rounded-md border p-3">
                 <Image className="rounded-lg" src={preview.imgUrl} alt={preview.title} width={0} height={0} />
