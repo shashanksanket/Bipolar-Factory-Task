@@ -6,8 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import edit from "../../assets/edit.svg"
-import delet from "../../assets/delete.svg"
+import edit from "../assets/edit.svg"
+import delet from "../assets/delete.svg"
 
 function createData(
   Name: string,
